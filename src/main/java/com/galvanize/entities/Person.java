@@ -73,6 +73,14 @@ public class Person {
             return diff.getYears();
         }
 
-
-
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", birthDate=" + birthDate +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", age='" + getAge() +
+                '}';
+    }
 }

@@ -13,12 +13,17 @@ public class HelloRestController {
     public Person sayHello(@RequestParam String name, @RequestParam Date birthDate, @RequestParam String email, @RequestParam String address){
 
         Person person = new Person(name, birthDate, email, address);
+        System.out.println(person);
         return person;
     }
 
   @PostMapping()
   public Person helloPerson(@RequestBody Person person){
+
+      System.out.println(person);
         return person;
   }
+
+
 
 }
