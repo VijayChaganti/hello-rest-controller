@@ -41,7 +41,7 @@ public class HelloRestControllerTest {
     @Test
     public void helloRegistration(){
         HelloRestController hrc = new HelloRestController();
-        Person p = hrc.sayHello("rob", getTestDob(10),"rob.wing@galvanize.com", "address1");
+        Person p = hrc.sayHello("rob", getTestDob(10),"vij.chag@gmail.com", "address1");
         assertEquals(p.getAge(), 10);
     }
 
@@ -57,25 +57,25 @@ public class HelloRestControllerTest {
 
     @Test
     void helloRegGetReturnsPerson() throws Exception {
-        String url = "/hello?name=vijay&birthDate=11/16/1991&email=vijaya.chaganti@mckesson.com&address=address1";
+        String url = "/hello?name=vijay&birthDate=11/16/1991&email=vij.chag@gmail.com&address=address1";
         mvc.perform(get(url))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("vijaya.chaganti@mckesson.com")))
+                .andExpect(content().string(containsString("vij.chag@gmail.com")))
                 .andExpect(jsonPath("$.age").value(28));
     }
 
   @Test
     public void postRestControllerTest() throws Exception {
 
-        String json = "{\"name\":\"vijay\",\"birthDate\":\"11/01/1990\",\"email\":\"vijaya.chaganti@mckesson.com\",\"address\":\"address1\"}";
+        String json = "{\"name\":\"vijay\",\"birthDate\":\"11/01/1990\",\"email\":\"vij.chag@gmail.com\",\"address\":\"address1\"}";
 
         mvc.perform(post("/hello")
                 .content(json)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("vijaya.chaganti@mckesson.com")))
+                .andExpect(content().string(containsString("vij.chag@gmail.com")))
                 .andExpect(jsonPath("$.age").value(29));
 
   }
